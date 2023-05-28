@@ -2,6 +2,7 @@ from .base import *
 import os
 from buildpro.logging import *
 from dotenv import load_dotenv
+import dj_database_url
 
 load_dotenv(Path.joinpath(BASE_DIR, 'dotenv'))
 
@@ -14,14 +15,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ.get('DB_NAME'),
-        "USER": os.environ.get('DB_USER'),
-        "PASSWORD": os.environ.get('DB_PASSWORD'),
-        "HOST": os.environ.get('DB_HOST'),
-        "PORT": os.environ.get('DB_PORT'),
-    }
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
