@@ -7,7 +7,7 @@ import dj_database_url
 load_dotenv(Path.joinpath(BASE_DIR, 'dotenv'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-8b0mw9ghues#mqq4q7u$^8*ft0__7)!zo%cu4(i!+h)epxuh$_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
