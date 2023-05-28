@@ -15,7 +15,7 @@ DEBUG = False
 ALLOWED_HOSTS = ['*']
 
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    "default": dj_database_url.parse('postgres://admin:6jZooPk4oTSfECFYCCQzIw2UJm93JiFK@dpg-chpqp2vdvk4goevpfjlg-a.oregon-postgres.render.com/postdb_swxm')
 }
 
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
