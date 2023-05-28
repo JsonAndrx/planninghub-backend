@@ -46,6 +46,7 @@ LOCAL_MIDDLEWARE = [
 ]
 
 THIRD_MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
     'whitenoise.middleware.WhitenoiseMiddleware',
 ]
 
