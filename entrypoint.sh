@@ -8,4 +8,4 @@ python manage.py wait_for_db --settings=buildpro.settings.production
 python manage.py migrate --settings=buildpro.settings.production
 
 echo "runing server..."
-gunicorn --env DJANGO_SETTINGS_MODULE=buildpro.settings.production config.wsgi:application
+gunicorn --env DJANGO_SETTINGS_MODULE=buildpro.settings.production buildpro.wsgi:application
