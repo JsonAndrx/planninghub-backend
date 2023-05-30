@@ -1,14 +1,11 @@
 #!/bin/sh
 
-echo "runing collectstatic..."
-python manage.py collectstatic --no-input --settings=buildpro.settings.production
-
 echo "runing migration..."
-python manage.py wait_for_db --settings=buildpro.settings.production
-python manage.py migrate --settings=buildpro.settings.production
+python manage.py wait_for_db --settings=buildpro.settings.local
+python manage.py migrate --settings=buildpro.settings.local
 
 echo "creating superuser..."
-python manage.py createsu --settings=buildpro.settings.production
+python manage.py createsu --settings=buildpro.settings.local
 
 echo "runing server..."
-gunicorn --env DJANGO_SETTINGS_MODULE=buildpro.settings.production buildpro.wsgi:application
+python manage.py runserver --settings=buildpro.settings.local
