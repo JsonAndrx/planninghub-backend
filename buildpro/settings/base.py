@@ -8,7 +8,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
 # Application definition
 
@@ -70,21 +73,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'buildpro.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.postgresql",
-#         "NAME": "postgres",
-#         "USER": "postgres",
-#         "PASSWORD": "postgres",
-#         "HOST": "postgres",
-#         "PORT": "5432",
-#     }
-# }
 
 
 # Password validation

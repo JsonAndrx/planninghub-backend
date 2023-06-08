@@ -8,4 +8,4 @@ echo "creating superuser..."
 python manage.py createsu --settings=buildpro.settings.local
 
 echo "runing server..."
-python manage.py runserver --settings=buildpro.settings.local
+python manage.py runserver --settings=buildpro.settings.local 0.0.0.0:8000
