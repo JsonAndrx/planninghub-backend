@@ -1,6 +1,7 @@
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.core.management.base import BaseCommand
 
+User = get_user_model()
 class Command(BaseCommand):
     help = 'Create a superuser'
 
@@ -9,6 +10,7 @@ class Command(BaseCommand):
             return 'Superuser already exist'
         User.objects.create_superuser(
             username='admin',
-            password='adminyeison123'
+            password='adminyeison123',
+            email='admin@admin.com'
         )
         return 'Superuser has been created'

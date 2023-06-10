@@ -1,7 +1,10 @@
 #!/bin/sh
 
-echo "runing migration..."
+echo "conect database..."
 python manage.py wait_for_db --settings=buildpro.settings.local
+
+echo "running migrations.."
+python manage.py makemigrations --settings=buildpro.settings.local
 python manage.py migrate --settings=buildpro.settings.local
 
 echo "creating superuser..."

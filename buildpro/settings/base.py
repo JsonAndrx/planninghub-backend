@@ -26,13 +26,16 @@ BASE_APPS = [
 
 LOCAL_APPS = [
     'apps.core',
+    'apps.users'
 ]
 
 THIRD_APPS = [
-
+    'rest_framework',
 ]
 
 INSTALLED_APPS = BASE_APPS + LOCAL_APPS + THIRD_APPS
+
+AUTH_USER_MODEL = 'users.User'
 
 BASE_MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
