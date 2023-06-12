@@ -5,6 +5,7 @@ from rest_framework.validators import UniqueValidator
 from rest_framework import serializers
 
 from apps.utils.objects_init import get_object_user
+from .profiles import Profile
 
 obj = get_object_user()
 
@@ -25,6 +26,7 @@ class UserSignupSerializer(serializers.Serializer):
     email = serializers.EmailField(validators=[UniqueValidator(obj.get_users())])
     username = serializers.CharField(min_length=4, max_length=16, validators=[UniqueValidator(obj.get_users())])
     phone_regex = RegexValidator(regex=r'\+?1?\d{10}$', message='Phone number must be entered in the format: +5555555555')
+    phone_number = serializers.CharField(validators=[phone_regex])
     password = serializers.CharField(min_length=8, max_length=20)
     password_confirmation = serializers.CharField(min_length=8, max_length=20)
     first_name = serializers.CharField(min_length=2, max_length=34)
@@ -43,4 +45,5 @@ class UserSignupSerializer(serializers.Serializer):
 
         data.pop('password_confirmation')
         user = obj.user_init().objects.create_user(**data, is_verified=False, is_client=True)
+        Profile.objects.create(user=user)
         return user
