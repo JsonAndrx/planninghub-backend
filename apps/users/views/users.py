@@ -15,7 +15,7 @@ class LoginUser(APIView):
         return Response(data, status=status.HTTP_200_OK)
     
 
-class SingupUser(APIView):
+class SignupUser(APIView):
 
     def post(self, request, format=None):
         serializer = UserSignupSerializer(data=request.data)

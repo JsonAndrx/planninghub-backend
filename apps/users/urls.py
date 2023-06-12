@@ -3,6 +3,6 @@ from apps.users.views import users
 
 
 urlpatterns = [
-    path('api/users', users.LoginUser.as_view()),
-    path('api/singup', users.SingupUser.as_view())
+    path('api/home', users.LoginUser.as_view()),
+    path('api/signup', users.SignupUser.as_view())
 ]
